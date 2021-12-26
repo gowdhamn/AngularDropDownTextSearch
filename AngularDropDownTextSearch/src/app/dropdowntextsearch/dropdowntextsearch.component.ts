@@ -9,9 +9,8 @@ import { FormControl } from '@angular/forms';
 export class DropdowntextsearchComponent implements OnInit {
 
   @Input() formCtrl: FormControl = new FormControl;
-  @Input() options: any[] = [];
-  @Input() filterOptions: any[] = [];
-  @Input() placeholder: string = '';
+  @Input() inputData: any[] = [];
+  @Input() filterOptions: any[] = [];  
 
   @ViewChild('searchmatType') searchmatType!: ElementRef;
 
@@ -25,17 +24,17 @@ export class DropdowntextsearchComponent implements OnInit {
   clearFormInput() {
     this.searchmatType.nativeElement.focus();
     this.searchmatType.nativeElement.value = '';
-    this.filterOptions = this.options;
+    this.filterOptions = this.inputData;
   }
 
   resetDropDownSearchFilter() {
-    if (this.filterOptions.length === 0) { this.filterOptions = this.options; }
+    if (this.filterOptions.length === 0) { this.filterOptions = this.inputData; }
   }
 
   clearTextSearch(event: any) {
     event.stopPropagation();
     this.textSearchInputControl.patchValue('');
-    this.filterOptions = this.options;
+    this.filterOptions = this.inputData;
   }
 
   search(query: Event): void {
@@ -49,7 +48,7 @@ export class DropdowntextsearchComponent implements OnInit {
   }
 
   private autoSearchFilter(query: string, formControl: FormControl) {
-    let filteredList = this.options.filter(
+    let filteredList = this.inputData.filter(
       option => option.value.toString().toLowerCase().indexOf(query.toLowerCase()) > -1);
 
     if (formControl.value !== undefined && formControl.value !== null && formControl.value !== '') {

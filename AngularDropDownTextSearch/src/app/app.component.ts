@@ -10,16 +10,43 @@ export class AppComponent {
 
   countries: any = [
     {
-      key: "Great Britain",
-      value: "GB"
+      key: "1",
+      value: "One"
     },
     {
-      key: "United States",
-      value: "US"
+      key: "2",
+      value: "Two"
     },
     {
-      key: "Canada",
-      value: "CA"
+      key: "3",
+      value: "Three"
+    },
+    {
+      key: "4",
+      value: "Four"
+    },
+    {
+      key: "5",
+      value: "Five"
+    },
+    {
+      key: "6",
+      value: "Six"
+    },
+    {
+      key: "7",
+      value: "Seven"
+    },
+    {
+      key: "8",
+      value: "Eight"
+    },
+    {
+      key: "9",
+      value: "Nine"
+    },{
+      key: "10",
+      value: "Ten"
     }
   ];
 
