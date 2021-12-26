@@ -1,0 +1,27 @@
+<mat-form-field appearance="fill">
+    <mat-select id="ddlSearch" (openedChange)="clearFormInput()" placeholder="Search"
+        [formControl]="formCtrl" multiple [disableOptionCentering]="true" (click)="resetDropDownSearchFilter()">
+        <div class="select-container">
+            <mat-optgroup>
+                <mat-form-field class="width-100">
+                    <input id="txtSearchInput" #searchmatType autocomplete="off" placeholder="Search"
+                        aria-label="Search" matInput [formControl]="textSearchInputControl" focused="'true'"
+                        type="text" (keyup)="search($event)" (keydown)="$event.stopPropagation()"
+                        autocomplete="off">
+
+                    <button id="btnSearchClear" [disableRipple]="true" *ngIf="searchmatType.value" matSuffix
+                        mat-icon-button aria-label="Clear" (click)="clearTextSearch($event)">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-form-field>
+            </mat-optgroup>
+            <mat-option *ngFor="let option of filterOptions" [value]="option">
+                {{option.value}}
+            </mat-option>
+        </div>
+    </mat-select>
+    <button id="btnClear" *ngIf="formCtrl.value" matSuffix mat-icon-button type="button" aria-label="Clear"
+        (click)="formCtrl.setValue(null); $event.stopPropagation()">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
