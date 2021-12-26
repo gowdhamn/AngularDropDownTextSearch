@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent {
 
-  countries: any = [
+  inputArray: any = [
     {
       key: "1",
       value: "One"
@@ -50,7 +50,7 @@ export class AppComponent {
     }
   ];
 
-  fcMaterial = new FormControl();
+  fcSearch = new FormControl();
  
   constructor(){}
 
